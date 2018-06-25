@@ -228,5 +228,4 @@ function startMap() {
     });
   }
 }
-
 startMap();
