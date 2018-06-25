@@ -1,9 +1,23 @@
-// document.addEventListener('DOMContentLoaded', () => {
 
-//   console.log('IronGenerator JS imported successfully!');
+//define fake spots
+let spot1 = {
+  name:"In front of MTV office",
+  coordinates: {
+    latitude: 52.500120,
+    longitude: 13.453469,
+  }
+}
 
-// }, false);
+let spot2 = {
+  name:"Oberbaumbrücke",
+  coordinates: {
+    latitude: 52.501982,
+    longitude: 13.445887,
+  }
+}
 
+
+//create array of spots we want to display (later after database call)
 
 function startMap() {
   const ironhackBER = {
@@ -183,9 +197,31 @@ function startMap() {
                 }
             ]
         }
-    ]
+    ],
     }
   );
+
+  
+  const spot1Marker = new google.maps.Marker({
+    position: {
+      lat: spot1.coordinates.latitude,
+      lng: spot1.coordinates.longitude,
+    },
+    map: map,
+    title: spot1.name
+  });
+  
+  const spot2Marker = new google.maps.Marker({
+    position: {
+      lat: spot2.coordinates.latitude,
+      lng: spot2.coordinates.longitude,
+    },
+    map: map,
+    title: spot2.name
+  });
 }
+
+
+
 
 startMap();
