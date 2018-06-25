@@ -30,4 +30,7 @@ router.get('/', (req, res, next) => {
   res.render('index',{googleAPIKey : googleAPIKey, spots:spots });
 });
 
+
+
+
 module.exports = router;

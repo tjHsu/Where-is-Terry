@@ -20,13 +20,15 @@ authRoutes.post("/login", passport.authenticate("local", {
 }));
 
 authRoutes.get("/signup", (req, res, next) => {
+  console.log("I got the page")
   res.render("auth/signup");
 });
 
 authRoutes.post("/signup", (req, res, next) => {
   const username = req.body.username;
+  const email = req.body.email;
   const password = req.body.password;
-  const rol = req.body.role;
+  // const rol = req.body.role;
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
@@ -43,8 +45,9 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       username,
+      email,
       password: hashPass,
-      role:"teacher"
+      // role:"teacher"
     });
 
     newUser.save((err) => {
