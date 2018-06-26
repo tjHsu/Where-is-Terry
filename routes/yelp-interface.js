@@ -6,10 +6,10 @@
 
 // // 52.346846, 13.255278 min 
 // // 52.598639, 13.553624 max
-// const express = require('express');
-// const yelpInterface = express.Router();
-// const yelp = require('yelp-fusion');
-// const Spot = require('../models/Spot');
+const express = require('express');
+const yelpInterface = express.Router();
+const yelp = require('yelp-fusion');
+const Spot = require('../models/Spot');
 
 // // Place holder for Yelp Fusion's API Key. Grab them
 // // from https://www.yelp.com/developers/v3/manage_app
@@ -225,4 +225,4 @@
 
 
 
-// module.exports = yelpInterface;
+module.exports = yelpInterface;
