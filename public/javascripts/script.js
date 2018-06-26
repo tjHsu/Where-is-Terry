@@ -1,21 +1,40 @@
+let spotList; 
+
+  function getSpots() {
+    axios.get("http://localhost:3000/api")
+    .then(response => {
+      console.log("DEGUG: response: ",response);
+      spotList = response.data.spots; 
+      console.log("DEGUG: spotList: ",spotList);
+
+      // placeRestaurants(response.data.restaurants)
+    })
+    .catch(error => {
+      next(error)
+    })
+  }
+
+  getSpots();
+  console.log(spotList,"spotList")
+
 //define fake spots. should be passed through HBS file "in reality"
-let spot1 = {
-  name: "In front of MTV office",
-  coordinates: {
-    latitude: 52.50012,
-    longitude: 13.453469
-  }
-};
+// let spot1 = {
+//   name: "In front of MTV office",
+//   coordinates: {
+//     latitude: 52.50012,
+//     longitude: 13.453469
+//   }
+// };
 
-let spot2 = {
-  name: "Oberbaumbrücke",
-  coordinates: {
-    latitude: 52.501982,
-    longitude: 13.445887
-  }
-};
+// let spot2 = {
+//   name: "Oberbaumbrücke",
+//   coordinates: {
+//     latitude: 52.501982,
+//     longitude: 13.445887
+//   }
+// };
 
-let spots = [spot1, spot2];
+// let spots = [spot1, spot2];
 //create array of spots we want to display (later after database call)
 
 function startMap() {

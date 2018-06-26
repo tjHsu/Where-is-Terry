@@ -33,10 +33,10 @@
       {{#each spots}}
 
         <div class="card" style="width: 18rem;">
-          {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+          <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{ this.name}}</h5>
-            <p class="card-text">{{ this.description }}</p>
+            <h5 class="card-title">{{this.name}}</h5>
+            {{!-- <p class="card-text">{{ this.description }}</p> --}}
             <a href="#" class="btn btn-primary">Go check this out</a>
           </div>
         </div>
@@ -45,7 +45,7 @@
 
   </div>
 
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key={{googleAPIKey}}">
   </script>
   <script type="text/javascript" src="../public/javascripts/script.js"></script>
