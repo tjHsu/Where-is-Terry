@@ -6,6 +6,20 @@ let center = {
 
 loadEverything();
 
+// let locationCenter = {
+//   lat: 52.502515, 
+//   lng: 13.446736,
+// };
+// let locationSpot = {
+//   lat: 52.497332, 
+//   lng: 13.463732,
+// };
+
+// let testDistance = google.maps.geometry.spherical.computeDistanceBetween(locationCenter, locationSpot);
+
+// console.log('DEBUG testDistance',testDistance);
+
+
 //location button
 
 var locationButtonIsClicked = false; // declare the variable that tracks the state
