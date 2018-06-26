@@ -82,6 +82,6 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-const yelpInterface = require('./routes/yelp-interface');
+// const yelpInterface = require('./routes/yelp-interface');
       
 module.exports = app;
