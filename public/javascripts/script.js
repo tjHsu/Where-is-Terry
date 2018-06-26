@@ -43,7 +43,7 @@ xbergButton.addEventListener("click", xbergclickHandler);
 
 function loadEverything() {
   axios
-    .get("https://where-is-terry.herokuapp.com/api")
+    .get("http://localhost:3000/api")
     .then(response => {
       // console.log("DEGUG: response: ", response);
       let spots = response.data.spots;
