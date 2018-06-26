@@ -21,14 +21,25 @@ locationButton.addEventListener("click", clickHandler); // associate the functio
 
 //fhain button
 
-// var fhainButtonIsClicked = false;
-// function clickHandler() {
-//   fhainButtonIsClicked = true;
-//   loadEverything();
-// }
+var fhainButtonIsClicked = false;
+function fhainclickHandler() {
+  fhainButtonIsClicked = true;
+  loadEverything();
+}
 
-// var fhainButton = document.getElementsByClassName("fhain")[0]; // grab a reference to your element
-// fhainButton.addEventListener("click", clickHandler); // associate the function above with the click event
+var fhainButton = document.getElementsByClassName("fhain")[0];
+fhainButton.addEventListener("click", fhainclickHandler); 
+
+//xberg button
+
+var xbergButtonIsClicked = false;
+function xbergclickHandler() {
+  xbergButtonIsClicked = true;
+  loadEverything();
+}
+
+var xbergButton = document.getElementsByClassName("xberg")[0];
+xbergButton.addEventListener("click", xbergclickHandler); 
 
 function loadEverything() {
   axios
@@ -53,13 +64,27 @@ function loadEverything() {
           });
         }
 
-        // if (fhainButtonIsClicked) {
-        //   center = {
-        //     lat: 52.5130875,
-        //     lng: 13.4509698
-        //   };
-        //   map.setCenter(center);
-        // }
+        if (fhainButtonIsClicked) {
+          navigator.geolocation.getCurrentPosition(position => {
+            center = {
+              lat: 52.5130875,
+              lng: 13.4509698
+            };
+            map.setCenter(center);
+          });
+          
+        }
+
+        if (xbergButtonIsClicked) {
+          navigator.geolocation.getCurrentPosition(position => {
+            center = {
+              lat: 52.4965914,
+              lng: 13.4141903
+            };
+            map.setCenter(center);
+          });
+          
+        }
 
         console.log("DEBUG center", center);
 
