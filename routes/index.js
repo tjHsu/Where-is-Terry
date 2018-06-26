@@ -2,34 +2,32 @@
 const express = require('express');
 const router  = express.Router();
 googleAPIKey = process.env.GOOGLE_API_KEY;
-
-//fake spots that will later be created based on user behavior
-
-let spot1 = {
-  name: "In front of MTV office",
-  coordinates: {
-    latitude: 52.50012,
-    longitude: 13.453469
-  },
-  description: "beautiful view of the spree river", 
-};
-
-let spot2 = {
-  name: "Oberbaumbrücke",
-  coordinates: {
-    latitude: 52.501982,
-    longitude: 13.445887
-  },
-  description: "live music", 
-};
-
-let spots = [spot1,spot2];
+const Spot = require("../models/Spot");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index',{googleAPIKey : googleAPIKey, spots:spots });
+  Spot.find()
+  .then((spots)=> {
+    res.render('index',{googleAPIKey : googleAPIKey, spots:spots });
+  })
 });
 
+// our own "API" that gives acess to information stored into the database to the script  
+
+router.get('/api', (req, res, next) => {
+	Spot.find((error, spots) => {
+		if (error) { next(error) } 
+		else { res.status(200).json({ spots })}
+	})
+})
+
+router.get('/api/:id', (req, res, next) => {
+	let spotId = req.params.id;
+	Spot.findOne({_id: spotId}, (error, spot) => {
+		if (error) { next(error) } 
+		else { res.status(200).json({ spot }) }
+	})
+})
 
 
 
