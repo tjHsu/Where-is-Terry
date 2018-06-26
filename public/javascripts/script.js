@@ -43,7 +43,7 @@ xbergButton.addEventListener("click", xbergclickHandler);
 
 function loadEverything() {
   axios
-    .get("/api")
+    .get(`/api/${center.lat}/${center.lng}`)
     .then(response => {
       // console.log("DEGUG: response: ", response);
       let spots = response.data.spots;
