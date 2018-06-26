@@ -6292,4 +6292,11 @@ a {
 .card-img-top {
   width: 200px; }
 
+h5.card-title {
+  color: black; }
+
+.clip-image {
+  height: 200px;
+  overflow: hidden; }
+
 /*# sourceMappingURL=style.css.map */

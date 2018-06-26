@@ -31,7 +31,7 @@ axios.get("http://localhost:3000/api")
         lng: 13.4019591
       };
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13,
+        zoom: 15,
         center: centerBerlin,
         styles: [
           {

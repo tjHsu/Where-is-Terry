@@ -27,29 +27,32 @@
 
   {{!-- Display all Spots --}}
 
-  <div id="listOfAllSpots">
-
-    <ul>
-      {{#each spots}}
-
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{this.image_url}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{this.name}}</h5>
-            {{!-- <p class="card-text">{{ this.description }}</p> --}}
-            <a href="#" class="btn btn-primary">Go check this out</a>
+  <div id="listOfAllSpots" class="container">
+    <div class="row">
+      {{!--
+      <ul> --}} {{#each spots}}
+        <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="clip-image">
+              <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{this.name}}</h5>
+              {{!--
+              <p class="card-text">{{ this.description }}</p> --}}
+              <a href="{{this.url}}" class="btn btn-primary">Go check this out</a>
+            </div>
           </div>
         </div>
-      {{/each }}
-    </ul>
-
+        {{/each }} {{!-- </ul> --}}
+    </div>
   </div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key={{googleAPIKey}}">
   </script>
-  <script type="text/javascript" src="../public/javascripts/script.js"></script>
-  {{!-- <script type="text/javascript" src="../public/javascripts/yelp-interface.js"></script> --}}
+  <script type="text/javascript" src="../public/javascripts/script.js"></script> {{!--
+  <script type="text/javascript" src="../public/javascripts/yelp-interface.js"></script> --}}
 </body>
 
 </html>
