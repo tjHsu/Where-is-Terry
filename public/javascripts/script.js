@@ -7,23 +7,6 @@ axios.get("http://localhost:3000/api")
     return spots;
   })
   .then((spots) => {
-    //define fake spots. should be passed through HBS file "in reality"
-    // let spot1 = {
-    //   name: "In front of MTV office",
-    //   coordinates: {
-    //     latitude: 52.50012,
-    //     longitude: 13.453469
-    //   }
-    // };
-    // let spot2 = {
-    //   name: "Oberbaumbrücke",
-    //   coordinates: {
-    //     latitude: 52.501982,
-    //     longitude: 13.445887
-    //   }
-    // };
-    // let spots = [spot1, spot2];
-    //create array of spots we want to display (later after database call)
 
     function startMap() {
       const centerBerlin = {
@@ -223,7 +206,19 @@ axios.get("http://localhost:3000/api")
         // create infoWindow with description for each of the spots 
 
         let infoWindow = new google.maps.InfoWindow({
-          content: spots[i].name
+      
+          content:  `<div class="col-lg-4 col-md-6 col-sm-12 p-2">`+ 
+          `<div class="card text-center mx-auto" style="width: 18rem">` +
+            `<div class="clip-image">`+ 
+              `<img class="card-img-top pt-3 mx-auto mt-auto" src=${spots[i].image_url} alt="Card image cap">` + 
+            `</div>`+ 
+            `<div class="card-body">`+
+              `<h5 class="card-title">`+ spots[i].name + `</h5>`+
+              `<a href=${spots[i].url} class="btn btn-primary" target="_blank">`+`learn more`+`</a>`+
+           `</div>`+ 
+          `</div>`+ 
+       ` </div>` 
+
         });
 
         infoWindows.push(infoWindow);
