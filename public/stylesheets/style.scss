@@ -3,13 +3,10 @@ $primary: #C8D7D4;
 @import "node_modules/bootstrap/scss/bootstrap";
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Poiret One", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
+
 
 .card-img-top {
   width: 200px;
@@ -25,6 +22,13 @@ h5.card-title{
   overflow: hidden;
 }
 
-.markers {
-  background:pink;
+
+h1 {
+  font-family: Poiret One; 
+  font-size: 10vh; 
+}
+
+.special
+{
+background-color: #F1FF8C, 
 }

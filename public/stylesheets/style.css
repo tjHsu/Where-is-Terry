@@ -6283,11 +6283,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-
-a {
-  color: #00B7FF; }
+  font: 14px "Poiret One", "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 .card-img-top {
   width: 200px; }
@@ -6299,7 +6295,11 @@ h5.card-title {
   height: 200px;
   overflow: hidden; }
 
-.markers {
-  background: pink; }
+h1 {
+  font-family: Poiret One;
+  font-size: 10vh; }
+
+.special {
+  background-color: #F1FF8C; }
 
 /*# sourceMappingURL=style.css.map */
