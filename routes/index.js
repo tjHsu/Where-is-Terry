@@ -32,10 +32,10 @@ router.get('/api/:id', (req, res, next) => {
 router.get('/api/:latitude/:longitude', (req, res, next) => {
 	let spotLat = req.params.latitude;
 	let spotLng = req.params.longitude;
-	let spotLatMin = parseFloat(spotLat)-0.025;
-	let spotLatMax = parseFloat(spotLat)+0.025;
-	let spotLngMin = parseFloat(spotLng)-0.029;
-	let spotLngMax = parseFloat(spotLng)+0.029;
+	let spotLatMin = parseFloat(spotLat)-(0.025/2);
+	let spotLatMax = parseFloat(spotLat)+(0.025/2);
+	let spotLngMin = parseFloat(spotLng)-(0.029/2);
+	let spotLngMax = parseFloat(spotLng)+(0.029/2);
 	// console.log("DEBUG", spotLat, spotLng);
 	// Spot.find((error, spots) => {
 	// 	if (error) { next(error) } 
