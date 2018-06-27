@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 function loadEverything() {  
   axios
-    .get(`/api/${center.lat}/${center.lng}`)
+    .get(`/api/spots/${center.lat}/${center.lng}`)
     .then(response => {
       // console.log("DEGUG: response: ", response);
       let spots = response.data.spots;
