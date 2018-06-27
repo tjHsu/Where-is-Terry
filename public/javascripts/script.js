@@ -55,7 +55,7 @@ function xbergclickHandler() {
 var xbergButton = document.getElementsByClassName("xberg")[0];
 xbergButton.addEventListener("click", xbergclickHandler); 
 
-function loadEverything() {
+function loadEverything() {  
   axios
     .get(`/api/${center.lat}/${center.lng}`)
     .then(response => {
