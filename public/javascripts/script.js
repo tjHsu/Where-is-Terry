@@ -6,7 +6,7 @@ let center = {
 
 loadEverything();
 
-//location button
+//Button Jquery
 
 $(document).ready(function() {
 
@@ -19,20 +19,19 @@ $(document).ready(function() {
     loadEverything(); 
     
   });
+
+  $(".locate-me-button").click(function(event) {
+    console.log("locate me button clicked");
+    navigator.geolocation.getCurrentPosition(position => {
+      center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+        }
+    loadEverything(); 
+    });   
+  });
+
 });
-
-
-
-var locationButtonIsClicked = false; // declare the variable that tracks the state
-function clickHandler() {
-  // declare a function that updates the state
-  locationButtonIsClicked = true;
-  console.log("DEBUG locate me was clicked");
-  loadEverything();
-}
-
-var locationButton = document.getElementsByClassName("location")[0]; // grab a reference to your element
-locationButton.addEventListener("click", clickHandler); // associate the function above with the click event
 
 function loadEverything() {  
   axios
@@ -50,19 +49,6 @@ function loadEverything() {
 }
 
 function startMap(spots) {
-
-  if (locationButtonIsClicked) {
-    console.log("DEBUG  navigator.geolocation", navigator.geolocation);
-    navigator.geolocation.getCurrentPosition(position => {
-      center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      map.setCenter(center);
-    });
-  }
-
-
   console.log("DEBUG center", center);
 
   const map = new google.maps.Map(document.getElementById("map"), {
