@@ -16,8 +16,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/api', (req, res, next) => {
 	Spot.find((error, spots) => {
-		if (error) { next(error) } 
-		else { res.status(200).json({ spots })}
+		if (error) { res.status(500).json({ error: error }) } 
+		else { res.status(200).json({ spots, error: null })}
 	})
 })
 
