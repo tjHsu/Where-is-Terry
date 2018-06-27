@@ -62,7 +62,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Where is Terry?';
 
 
 // Enable authentication using session + passport
@@ -80,6 +80,10 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
+
+
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
 
 const addPlaceRoutes = require('./routes/add-place');
 app.use('/', addPlaceRoutes);
