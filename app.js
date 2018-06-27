@@ -6,7 +6,7 @@ const express      = require('express');
 const favicon      = require('serve-favicon');
 const hbs          = require('hbs');
 const passport     = require('passport');
-const LocalStrategy      = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
@@ -18,7 +18,7 @@ const flash      = require("connect-flash");
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/where-is-terry', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
