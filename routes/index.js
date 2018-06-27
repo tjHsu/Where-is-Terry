@@ -41,6 +41,23 @@ router.get('/api/:latitude/:longitude', (req, res, next) => {
 	// 	if (error) { next(error) } 
 	// 	else { res.status(200).json({ spots })}
 	// })
+	console.log("I am here")
+	// Spot.find({
+	// 	    location: {
+	// 	      $near: {
+	// 	        $geometry: { type: "Point", coordinates: [spotLatMin, spotLngMin] },
+	// 	        $minDistance: 0,
+	// 	        $maxDistance: 1000 // = 1km
+	// 	      }
+	// 	    }
+	// 	  }).then(spots => {
+	// 		  console.log(spots);
+	// 	  })
+
+
+
+
+
 
 
 	Spot.find()
