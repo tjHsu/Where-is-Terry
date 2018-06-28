@@ -10,12 +10,17 @@ let spotLong = Number($("#informationCarrier-long").text());
   $(".locate-me-button").click(function(event) {
     console.log("locate me button clicked");
     navigator.geolocation.getCurrentPosition(position => {
-      center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-        }
-    console.log("Here is the Center in Jquery: ", center);
-    loadEverything(); 
+      console.log("we are in the locate me button juqery and this is out latitude",position.coords.latitude)
+      console.log("position",position);
+
+
+      window.location.replace(`/location/?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+      // center = {
+      //   lat: position.coords.latitude,
+      //   lng: position.coords.longitude
+    //   //   }
+    // console.log("Here is the Center in Jquery: ", center);
+    // loadEverything(); 
     });   
   });
 
