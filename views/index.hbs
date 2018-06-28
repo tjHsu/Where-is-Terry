@@ -9,70 +9,76 @@
 
 {{!-- <body> --}}
 
-  <div class="container justify-content-center terry">
-  <h1>Where is Terry?</h1>
+<div class="container.fluid">
 
-  <div class="container justify-content-center">
-  <p> <h3>Find the terrace closest to you <b> in Berlin</b></h3></p>
-  </div>
-  </div>
+    <div class="container justify-content-center terry">
+      <h1>Where is Terry?</h1>
+      <div class="container justify-content-center">
+        <p> <h3>Find the terrace closest to you <b> in Berlin</b></h3></p>
+      </div>
+    </div>
+
+  
+    <div class="col-sm">
+      <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
+    </div>
+    <div class="col-sm">
+      <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
+    </div>
+    <div class="col-sm">
+        <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="fhain district-button btn btn-primary mx-auto ">FHAIN</a>
+    </div>
+      {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
+     
+    
+
+    {{!-- Google Map visual --}}
+    <div class="container m-4">
+    <div id="map"></div>
+    </div>
+    {{!-- Display all Spots --}}
+
+  {{!-- <div class="row container">
+    <div class="col-3 container">
+
+      <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
+    </div>
+      <div class="col-3 container">    
+        
+      <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
+    </div>
+
+    <div class="col-3 container">
+
+      <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
+  </div> --}}
+
+        {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
+      {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
+      {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
 
 
-<div class="row">
-    <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
-  <div class="col-sm"></div>
-     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
-  <div class="col-sm"></div>
-    <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
-  <div class="col-sm"></div>
-</div>
 
-{{!-- <div class="row container">
-  <div class="col-3 container">
-
-    <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
-  </div>
-    <div class="col-3 container">    
-      
-     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
-  </div>
-
-  <div class="col-3 container">
-
-    <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
-</div> --}}
-
-</div>
-      {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
-    {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
-    {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
-
-  {{!-- Google Map visual --}}
-  <div class="container m-4">
-  <div id="map"></div>
-  </div>
-  {{!-- Display all Spots --}}
-
-
-  <div id="listOfAllSpots" class="container">
-    <div class="row">
-      {{!--
-      <ul> --}} {{#each spots}}
-        <div class="col-lg-4 col-md-6 col-sm-12 p-2">
-          <div class="card text-center mx-auto" style="width: 18rem;">
-            <div class="clip-image">
-              <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{this.name}}</h5>
-              {{!--
-              <p class="card-text">{{ this.description }}</p> --}}
-              <a href="/places/detail/{{this._id}}" class="btn btn-primary" target="_blank">detail</a>
-              <a href="{{this.url}}" class="btn btn-primary" target="_blank">learn more on Yelp</a>
+    <div id="listOfAllSpots" class="container">
+      <div class="row">
+        {{!--
+        <ul> --}} {{#each spots}}
+          <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+            <div class="card text-center mx-auto" style="width: 18rem;">
+              <div class="clip-image">
+                <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                {{!--
+                <p class="card-text">{{ this.description }}</p> --}}
+                <a href="/places/detail/{{this._id}}" class="btn btn-primary" target="_blank">detail</a>
+                <a href="{{this.url}}" class="btn btn-primary" target="_blank">learn more on Yelp</a>
+              </div>
             </div>
           </div>
-        </div>
-        {{/each }} {{!-- </ul> --}}
+          {{/each }} {{!-- </ul> --}}
+      </div>
     </div>
   </div>
 

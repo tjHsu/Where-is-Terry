@@ -18,8 +18,21 @@ $(document).ready(function() {
       lng: spotLong
     };
   }
+});
+
+  // if(spotLong === "locateMe" && spotLang === "locateMe")
+  // {
+  //   console.log("locate me button clicked");
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     center = {
+  //       lat: position.coords.latitude,
+  //       lng: position.coords.longitude
+  //       }}
+  //     );
+  //   }
+
   // else {
-    console.log("centerInside", center)
+    // console.log("centerInside", center)
     //   center = {
     //     lat: 52.5170874,
     //     lng: 13.4019591
@@ -29,7 +42,7 @@ $(document).ready(function() {
     
 
   
-  console.log("centeroutside",center);
+  // console.log("centeroutside",center);
 
 //default center
 // let center = {
@@ -308,4 +321,4 @@ function startMap(spots) {
   }
 }
 
-});
+// });
