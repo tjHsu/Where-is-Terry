@@ -10,6 +10,7 @@ url: String,
 review_count: Number,
 categories: [],
 rating: Number,
+// geometry: { type: {type: String}, coordinates: [ Number] },
 coordinates: { latitude: Number, longitude: Number },
 transactions: [],
 price: String,
@@ -42,6 +43,7 @@ _creator:{
     updatedAt: 'updated_at'
   }
 });
+// spotSchema.index({ location: '2dsphere' });
 
 const Spot = mongoose.model('Spot', spotSchema);
 module.exports = Spot;
