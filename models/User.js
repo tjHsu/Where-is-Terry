@@ -9,6 +9,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Spot'
   }],
+  _addedComments:[{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment'
+  }],
   _favouriteSpots:[{
     type: Schema.Types.ObjectId,
     ref: 'Spot'
