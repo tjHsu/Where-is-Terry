@@ -1,0 +1,14 @@
+<h1>Have a look on the spots you create with love ❤</h1>
+
+{{!-- {{#each spots._addedSpots}} {{name}} {{/each}} --}}
+
+<form method="POST" action="/places/edit">
+    {{!-- <input type="text" name="name" placeholder="Name"> --}}
+    <label>Your spots: </label><br>
+    <select name="id">
+        {{#each spots._addedSpots}}
+            <option value="{{_id}}">{{name}}</option> 
+        {{/each}}
+    </select>
+    <input type="submit" name="" id="submit">
+</form>
