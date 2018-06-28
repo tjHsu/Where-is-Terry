@@ -12,10 +12,15 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/location", (req, res, next) => {
+
+  
   // console.log('DEBUG res.query',res.query);
   console.log("DEBUG req.query", req.query);
 
   let locationCoordinates = req.query;
+
+  // if(locationCoordinates.latitude === "locateMe" && locationCoordinates.longitude === "locateMe")
+  // {res.render("index",  { googleAPIKey: googleAPIKey, spots: spots, spotLat:spotLat, spotLng:spotLng } );}
 
   console.log("locationCoordinates.latitude", locationCoordinates.latitude);
   //use the cooridnates to fetch 10 spots and pass them to the views

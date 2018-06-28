@@ -6303,7 +6303,8 @@ h1 {
   font-size: 10vw; }
 
 .btn {
-  font-family: Poiret One; }
+  font-family: Poiret One;
+  border-color: white; }
 
 .special {
   background-color: #E9E8EA; }
