@@ -90,7 +90,6 @@ placesRoutes.get('/edit',(req,res)=>{
   User.findById(res.locals.user._id).populate('_addedSpots')
   .then(spots=>{
     res.render('auth/edit-place-menu.hbs',{spots})
-
   })
 });
 
