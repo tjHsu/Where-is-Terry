@@ -12,6 +12,20 @@ router.get('/', (req, res, next) => {
   })
 });
 
+/* GET location page */
+// router.get('/location', (req, res, next) => {
+//   res.send("/location",req.query);
+// });
+
+router.get('/location', (req, res, next) => {
+  console.log('DEBUG res.query',res.query);
+  console.log('DEBUG req.query',req.query);
+
+  let searchquery = res.query 
+  res.render("location",searchquery)
+});
+
+
 // // our own "API" that gives acess to information stored into the database to the script  
 
 // router.get('/api', (req, res, next) => {

@@ -1,0 +1,13 @@
+Private page
+
+{{#if user}}
+  <div>
+    <a href="/">here are the secrets stored </a>
+    {{user}}
+  </div>
+{{/if}}
+
+
+{{#unless user}}
+Sorry, this is not for you to see.
+{{/unless}}

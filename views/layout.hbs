@@ -37,11 +37,22 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item location" href="#">In my area</a>
             </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/private">Private Page</a>
+          </li>
+            <li class="nav-item nav-link">
+              
+                {{#if user}} Welcome back, {{user.username}} {{/if}}
+          </li>
+
+
+
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
 
   <div class="container p-5">
 

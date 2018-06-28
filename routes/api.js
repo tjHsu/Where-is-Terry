@@ -1,8 +1,7 @@
 const express = require('express');
-// const router  = express.Router();
-const apiRoutes = express.Router();
-googleAPIKey = process.env.GOOGLE_API_KEY;
 const Spot = require("../models/Spot");
+
+const apiRoutes = express.Router();
 
 // our own "API" that gives acess to information stored into the database to the script  
 
