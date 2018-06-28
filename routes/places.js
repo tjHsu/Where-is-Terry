@@ -5,6 +5,14 @@ const Spot = require("../models/Spot");
 const User = require("../models/User");
 const Comment = require("../models/Comment");
 
+placesRoutes.post('/add_favourite/:spotId', (req, res) => {
+  User.findByIdAndUpdate(res.locals.user._id,{$addToSet:{_favouriteSpots:req.params.spotId}}, (err,user)=>{
+    // console.log(user);
+    if(err) console.log(err)
+    res.redirect(`/places/detail/${req.params.spotId}`);
+  })
+});
+
 placesRoutes.get('/detail/:spotId',(req,res)=>{
   Spot.findById(req.params.spotId).populate('_comments')
   .then(spot=>{
@@ -87,9 +95,9 @@ placesRoutes.post('/add', (req, res, next) => {
 
 
 placesRoutes.get('/edit',(req,res)=>{
-  User.findById(res.locals.user._id).populate('_addedSpots')
-  .then(spots=>{
-    res.render('auth/edit-place-menu.hbs',{spots})
+  User.findById(res.locals.user._id).populate('_addedSpots').populate('_favouriteSpots')
+  .then(user=>{
+    res.render('auth/edit-place-menu.hbs',{user})
   })
 });
 

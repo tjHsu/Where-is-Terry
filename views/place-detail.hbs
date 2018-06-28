@@ -17,7 +17,14 @@
     <label>canBringYourOwn Drinks</label><br>
     <input type="radio" name="canBringYourOwn" value="true"> Yes    
     <input type="radio" name="canBringYourOwn" value="false"> No
+
     <br>
 
     <input type="submit" name="" id="submit">
+</form>
+
+<form method="POST" action="/places/add_favourite/{{spot._id}}">
+    {{!-- <button name="subject" type="submit" value="CSS">CSS</button>    --}}
+  <button type="submit" >Add to my favourite spots</button>
+    {{!-- <input type="submit" name="" id="submit"> --}}
 </form>
