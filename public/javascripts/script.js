@@ -10,12 +10,18 @@ let spotLong = Number($("#informationCarrier-long").text());
   $(".locate-me-button").click(function(event) {
     console.log("locate me button clicked");
     navigator.geolocation.getCurrentPosition(position => {
-      center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-        }
-    console.log("Here is the Center in Jquery: ", center);
-    loadEverything(); 
+      // window.location.replace('https://google.com')
+      console.log("we are in the locate me button juqery and this is out latitude",position.coords.latitude)
+      console.log("position",position);
+
+
+      window.location.replace(`/location/?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+      // center = {
+      //   lat: position.coords.latitude,
+      //   lng: position.coords.longitude
+      //   }
+    // console.log("Here is the Center in Jquery: ", center);
+    // loadEverything(); 
     });   
   });
 
@@ -320,244 +326,256 @@ function startMap(spots) {
 });
 
 
-function loadEverything() {  
-  console.log('we are loading the map');
+// function loadEverything() {  
+//   console.log('we are loading the map');
+  
+//   axios
+//     .get(`/api/spots/${center.lat}/${center.lng}`)
+//     // .get(`/api/spots`)
+//     .then(response => {
+//       // console.log("DEGUG: response: ", response);
+//       let spots = response.data.spots;
+//       let spotsSelection = [];
+//       let spotLatMin = parseFloat(center.lat) - 0.025 / 2;
+//       let spotLatMax = parseFloat(center.lat) + 0.025 / 2;
+//       let spotLngMin = parseFloat(center.lng) - 0.029 / 2;
+//       let spotLngMax = parseFloat(center.lng) + 0.029 / 2;
+//       for (let i = 0; i < spots.length; i++) {
+//         console.log('this is my forloop',spots[i]);
 
-  axios
-    .get(`/api/spots/${center.lat}/${center.lng}`)
-    // .get(`/api/spots`)
-    .then(response => {
-      // console.log("DEGUG: response: ", response);
-      let spots = response.data.spots;
-      // console.log("DEGUG: spotList: ", spots);
-      startMap(spots);
-    })
+//         // const element = array[i];
 
-    .catch(error => {
-      console.log(error);
-    });
-}
+        
+//       }
+//       // console.log("DEGUG: spotList: ", spots);
+//       startMap(spots);
+//     })
 
-function startMap(spots) {
-  console.log("DEBUG center", center);
+//     .catch(error => {
+//       console.log(error);
+//     });
+// }
 
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
-    center: center,
-    styles: [
-      {
-        featureType: "all",
-        elementType: "geometry.fill",
-        stylers: [
-          {
-            weight: "2.00"
-          }
-        ]
-      },
-      {
-        featureType: "all",
-        elementType: "geometry.stroke",
-        stylers: [
-          {
-            color: "#9c9c9c"
-          }
-        ]
-      },
-      {
-        featureType: "all",
-        elementType: "labels.text",
-        stylers: [
-          {
-            visibility: "on"
-          }
-        ]
-      },
-      {
-        featureType: "landscape",
-        elementType: "all",
-        stylers: [
-          {
-            color: "#f2f2f2"
-          }
-        ]
-      },
-      {
-        featureType: "landscape",
-        elementType: "geometry.fill",
-        stylers: [
-          {
-            color: "#ffffff"
-          }
-        ]
-      },
-      {
-        featureType: "landscape.man_made",
-        elementType: "geometry.fill",
-        stylers: [
-          {
-            color: "#ffffff"
-          }
-        ]
-      },
-      {
-        featureType: "poi",
-        elementType: "all",
-        stylers: [
-          {
-            visibility: "off"
-          }
-        ]
-      },
-      {
-        featureType: "road",
-        elementType: "all",
-        stylers: [
-          {
-            saturation: -100
-          },
-          {
-            lightness: 45
-          }
-        ]
-      },
-      {
-        featureType: "road",
-        elementType: "geometry.fill",
-        stylers: [
-          {
-            color: "#eeeeee"
-          }
-        ]
-      },
-      {
-        featureType: "road",
-        elementType: "labels.text.fill",
-        stylers: [
-          {
-            color: "#7b7b7b"
-          }
-        ]
-      },
-      {
-        featureType: "road",
-        elementType: "labels.text.stroke",
-        stylers: [
-          {
-            color: "#ffffff"
-          }
-        ]
-      },
-      {
-        featureType: "road.highway",
-        elementType: "all",
-        stylers: [
-          {
-            visibility: "simplified"
-          }
-        ]
-      },
-      {
-        featureType: "road.arterial",
-        elementType: "labels.icon",
-        stylers: [
-          {
-            visibility: "off"
-          }
-        ]
-      },
-      {
-        featureType: "transit",
-        elementType: "all",
-        stylers: [
-          {
-            visibility: "off"
-          }
-        ]
-      },
-      {
-        featureType: "water",
-        elementType: "all",
-        stylers: [
-          {
-            color: "#46bcec"
-          },
-          {
-            visibility: "on"
-          }
-        ]
-      },
-      {
-        featureType: "water",
-        elementType: "geometry.fill",
-        stylers: [
-          {
-            color: "#c8d7d4"
-          }
-        ]
-      },
-      {
-        featureType: "water",
-        elementType: "labels.text.fill",
-        stylers: [
-          {
-            color: "#070707"
-          }
-        ]
-      },
-      {
-        featureType: "water",
-        elementType: "labels.text.stroke",
-        stylers: [
-          {
-            color: "#ffffff"
-          }
-        ]
-      }
-    ]
-  });
+// function startMap(spots) {
+//   console.log("DEBUG center", center);
 
-  //Create a Marker for every spot in the spots array
-  let spotMarkers = [];
-  let infoWindows = [];
+//   const map = new google.maps.Map(document.getElementById("map"), {
+//     zoom: 15,
+//     center: center,
+//     styles: [
+//       {
+//         featureType: "all",
+//         elementType: "geometry.fill",
+//         stylers: [
+//           {
+//             weight: "2.00"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "all",
+//         elementType: "geometry.stroke",
+//         stylers: [
+//           {
+//             color: "#9c9c9c"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "all",
+//         elementType: "labels.text",
+//         stylers: [
+//           {
+//             visibility: "on"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "landscape",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             color: "#f2f2f2"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "landscape",
+//         elementType: "geometry.fill",
+//         stylers: [
+//           {
+//             color: "#ffffff"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "landscape.man_made",
+//         elementType: "geometry.fill",
+//         stylers: [
+//           {
+//             color: "#ffffff"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "poi",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             visibility: "off"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             saturation: -100
+//           },
+//           {
+//             lightness: 45
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road",
+//         elementType: "geometry.fill",
+//         stylers: [
+//           {
+//             color: "#eeeeee"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road",
+//         elementType: "labels.text.fill",
+//         stylers: [
+//           {
+//             color: "#7b7b7b"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road",
+//         elementType: "labels.text.stroke",
+//         stylers: [
+//           {
+//             color: "#ffffff"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road.highway",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             visibility: "simplified"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "road.arterial",
+//         elementType: "labels.icon",
+//         stylers: [
+//           {
+//             visibility: "off"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "transit",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             visibility: "off"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "water",
+//         elementType: "all",
+//         stylers: [
+//           {
+//             color: "#46bcec"
+//           },
+//           {
+//             visibility: "on"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "water",
+//         elementType: "geometry.fill",
+//         stylers: [
+//           {
+//             color: "#c8d7d4"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "water",
+//         elementType: "labels.text.fill",
+//         stylers: [
+//           {
+//             color: "#070707"
+//           }
+//         ]
+//       },
+//       {
+//         featureType: "water",
+//         elementType: "labels.text.stroke",
+//         stylers: [
+//           {
+//             color: "#ffffff"
+//           }
+//         ]
+//       }
+//     ]
+//   });
 
-  for (let i = 0; i < spots.length; i++) {
-    let newMarker = new google.maps.Marker({
-      position: {
-        lat: spots[i].coordinates.latitude,
-        lng: spots[i].coordinates.longitude
-      },
-      map: map,
-      title: spots[i].name
-    });
-    spotMarkers.push(newMarker);
-    // create infoWindow with description for each of the spots
-    let infoWindow = new google.maps.InfoWindow({
-      content:
-        `<div class="col-lg-4 col-md-6 col-sm-12 p-2">` +
-        `<div class="card text-center mx-auto" style="width: 18rem">` +
-        `<div class="clip-image">` +
-        `<img class="card-img-top pt-3 mx-auto mt-auto" src=${
-          spots[i].image_url
-        }>` +
-        `</div>` +
-        `<div class="card-body">` +
-        `<h5 class="card-title">` +
-        spots[i].name +
-        `</h5>` +
-        `<a href=${
-          spots[i].url
-        } class="btn btn-primary" target="_blank">` +
-        `learn more` +
-        `</a>` +
-        `</div>` +
-        `</div>` +
-        ` </div>`
-    });
+//   //Create a Marker for every spot in the spots array
+//   let spotMarkers = [];
+//   let infoWindows = [];
 
-    infoWindows.push(infoWindow);
-    // add listener to each spot
-    spotMarkers[i].addListener("click", function() {
-      infoWindows[i].open(map, spotMarkers[i]);
-    });
-  }
-}
+//   for (let i = 0; i < spots.length; i++) {
+//     let newMarker = new google.maps.Marker({
+//       position: {
+//         lat: spots[i].coordinates.latitude,
+//         lng: spots[i].coordinates.longitude
+//       },
+//       map: map,
+//       title: spots[i].name
+//     });
+//     spotMarkers.push(newMarker);
+//     // create infoWindow with description for each of the spots
+//     let infoWindow = new google.maps.InfoWindow({
+//       content:
+//         `<div class="col-lg-4 col-md-6 col-sm-12 p-2">` +
+//         `<div class="card text-center mx-auto" style="width: 18rem">` +
+//         `<div class="clip-image">` +
+//         `<img class="card-img-top pt-3 mx-auto mt-auto" src=${
+//           spots[i].image_url
+//         }>` +
+//         `</div>` +
+//         `<div class="card-body">` +
+//         `<h5 class="card-title">` +
+//         spots[i].name +
+//         `</h5>` +
+//         `<a href=${
+//           spots[i].url
+//         } class="btn btn-primary" target="_blank">` +
+//         `learn more` +
+//         `</a>` +
+//         `</div>` +
+//         `</div>` +
+//         ` </div>`
+//     });
+
+//     infoWindows.push(infoWindow);
+//     // add listener to each spot
+//     spotMarkers[i].addListener("click", function() {
+//       infoWindows[i].open(map, spotMarkers[i]);
+//     });
+//   }
+// }
