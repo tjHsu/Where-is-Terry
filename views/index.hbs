@@ -28,14 +28,21 @@
 
 <div class="row container">
   <div class="col-3 container">
+
     <button type="button" class="locate-me-button btn btn-primary mx-auto">Locate Me</button>
-    </div>
-    <div class="col-3 container">
-    <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button>
-    </div>
-    <div class="col-3 container">
+  </div>
+    <div class="col-3 container">    
+      <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button>
+{{!--       
+     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a> --}}
+  </div>
+
+  <div class="col-3 container">
+    {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
+
     <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
-    </div>
+  </div>
+    {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
 </div>
 
   {{!-- Google Map visual --}}
