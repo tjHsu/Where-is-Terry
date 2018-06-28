@@ -1,12 +1,14 @@
 
-$primary: #C8D7D4; 
+$primary: #5A08D6; 
 @import "node_modules/bootstrap/scss/bootstrap";
 
 body {
-  font: 14px "Poiret One", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Open Sans";
 }
 
-
+.nav-title{
+  font-family: Poiret One; 
+}
 
 .card-img-top {
   width: 200px;
@@ -25,17 +27,17 @@ h5.card-title{
 
 h1 {
   font-family: Poiret One; 
-  font-size: 10vh; 
+  font-size: 10vw; 
+}
+
+.btn {
+  font-family: Poiret One; 
 }
 
 .special 
 {
-background-color: #F5FFAD, 
+background-color: #E9E8EA, 
 }
-
-.error-message {
-  background-color: #F5FFAD, 
-  }
 
 #map {
     height: 500px;
@@ -43,8 +45,7 @@ background-color: #F5FFAD,
 }
 
 #listOfAllSpots {
-    background-color: #829692;
-    color: white;
+  
 }
 
 #informationCarrier-long {
@@ -54,4 +55,8 @@ background-color: #F5FFAD,
 
 #informationCarrier-lat {
   display:none; 
+}
+
+.welcome-back {
+ background-color: #731FF2
 }

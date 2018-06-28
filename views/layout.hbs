@@ -3,14 +3,18 @@
 
 <head>
   <title>{{title}}</title>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poiret+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-light bg-primary">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <div class="container">
-      <a class="navbar-brand" href="/"> Where is Terry?</a>
+      <a class="navbar-brand nav-title" href="/"> Where is Terry ? </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,6 +22,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Find a Terrace
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item xberg" href="#">XBERG</a>
+              <a class="dropdown-item fhain" href="#">FHAIN</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item location" href="#">In my area</a>
+            </div>
           {{#unless user}}
 
           <li class="nav-item">
@@ -41,21 +56,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/places/edit">Edit Spots <sup>BETA</sup> </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Find a Terrace
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item xberg" href="#">XBERG</a>
-              <a class="dropdown-item fhain" href="#">FHAIN</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item location" href="#">In my area</a>
-            </div>
             <li class="nav-item">
               <a class="nav-link" href="/auth/private">Private Page</a>
             </li>
-            <li class="nav-item nav-link">
+            <li class="nav-item nav-link welcome-back">
 
               {{#if user}} Welcome back, {{user.username}} {{/if}}
             </li>
@@ -66,7 +70,7 @@
   </nav>
 
 
-  <div class="container p-5">
+  <div class="container">
 
     {{{body}}}
 
