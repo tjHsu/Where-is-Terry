@@ -5,6 +5,14 @@ const Spot = require("../models/Spot");
 const User = require("../models/User");
 
 
+placesRoutes.get('/detail/:spotId',(req,res)=>{
+  Spot.findById(req.params.spotId, function (err, spot) {
+    console.log(spot);
+    res.render('place-detail',{spot});
+  });
+})
+
+
 
 placesRoutes.get('/add', (req,res)=>{
   res.render('auth/add-place');
