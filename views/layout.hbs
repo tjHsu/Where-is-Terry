@@ -40,8 +40,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/auth/private">Private Page</a>
           </li>
-            <li class="nav-item">
-              <p>Welcome back, {{user.username}}</p>
+            <li class="nav-item nav-link">
+              
+                {{#if user}} Welcome back, {{user.username}} {{/if}}
           </li>
 
 
@@ -51,6 +52,7 @@
       </div>
     </div>
   </nav>
+
 
   <div class="container p-5">
 

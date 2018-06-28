@@ -62,7 +62,7 @@ authRoutes.post("/signup", (req, res, next) => {
 });
 
 authRoutes.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("auth/private", { user: req.user });
+  res.render("auth/private");
 });
 
 authRoutes.get("/logout", (req, res) => {

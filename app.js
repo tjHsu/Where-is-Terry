@@ -75,6 +75,12 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
+app.use(
+  function(req,res,next){
+    res.locals.user = req.user;
+    next(); 
+  }
+)
 
 
 const index = require('./routes/index');
@@ -87,8 +93,8 @@ app.use('/auth', authRoutes);
 const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
 
-const addPlaceRoutes = require('./routes/add-place');
-app.use('/', addPlaceRoutes);
+const addPlaceRoutes = require('./routes/places');
+app.use('/places', addPlaceRoutes);
 
 
 // const yelpInterface = require('./routes/yelp-interface');

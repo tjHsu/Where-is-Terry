@@ -17,13 +17,11 @@ router.get('/', (req, res, next) => {
 //   res.send("/location",req.query);
 // });
 
-router.get('/location/:searchquery', (req, res, next) => {
-  console.log('DEBUG request.params',request.params);
+router.get('/location', (req, res, next) => {
   console.log('DEBUG res.query',res.query);
   console.log('DEBUG req.query',req.query);
 
   let searchquery = res.query 
-  response.send(searchquery);
   res.render("location",searchquery)
 });
 

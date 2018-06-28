@@ -1,8 +1,8 @@
-<html>
+
 
 <head>
-  <title>Teracces next to you</title>
-  <style>
+  <title>Teraces next to you</title>
+  {{!-- <style>
     
     #map {
       height: 500px;
@@ -13,7 +13,7 @@
       background-color: #829692;
       color: white;
     }
-  </style>
+  </style> --}}
 </head>
 
 <body>
@@ -32,9 +32,9 @@
     <button type="button" class="locate-me-button btn btn-primary mx-auto">Locate Me</button>
   </div>
     <div class="col-3 container">    
-      <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button>
-{{!--       
-     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a> --}}
+      {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
+      
+     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
   </div>
 
   <div class="col-3 container">
@@ -83,4 +83,3 @@
   <script type="text/javascript" src="../public/javascripts/yelp-interface.js"></script> --}}
 </body>
 
-</html>

@@ -6305,4 +6305,12 @@ h1 {
 .error-message {
   background-color: #F5FFAD; }
 
+#map {
+  height: 500px;
+  width: 100%; }
+
+#listOfAllSpots {
+  background-color: #829692;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
