@@ -9,32 +9,43 @@
 
 <body>
 
-  <div class="container d-flex justify-content-center terry mt-4">
+  <div class="container justify-content-center terry">
   <h1>Where is Terry?</h1>
+
+  <div class="container justify-content-center">
+  <p> <h3>Find the terrace closest to you <b> in Berlin</b></h3></p>
+  </div>
   </div>
 
-  <div class="container d-flex justify-content-center">
-  <p> <h2>Find the terrace closest to you &nbsp</h2><h2 class="special"> in Berlin</h2></p>
-  </div>
 
-<div class="row container">
+<div class="row">
+    <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
+  <div class="col-sm"></div>
+     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
+  <div class="col-sm"></div>
+    <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
+  <div class="col-sm"></div>
+</div>
+
+{{!-- <div class="row container">
   <div class="col-3 container">
 
     <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
   </div>
     <div class="col-3 container">    
-      {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
       
      <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
   </div>
 
   <div class="col-3 container">
-    {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
 
     <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
-  </div>
-    {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
+</div> --}}
+
 </div>
+      {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
+    {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
+    {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
 
   {{!-- Google Map visual --}}
   <div class="container m-4">
@@ -71,7 +82,7 @@
   </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+  <script type="text/javascript" src="/javascripts/script.js"></script>
    {{!--
   <script type="text/javascript" src="../public/javascripts/yelp-interface.js"></script> --}}
 </body>
