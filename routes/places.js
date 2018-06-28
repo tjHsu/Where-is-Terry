@@ -17,14 +17,11 @@ addRoutes.post('/add', (req, res, next) => {
     longitude
     
   } = req.body;
-//   const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  // const imagePath =  `/uploads/${req.file.filename}`
-//   console.log(req.file);
+  console.log("USER: ",res.locals.user);
   const newSpot = new Spot({
     name,
-    latitude,
-    longitude,
-    _creator:req.user._id
+    coordinates: { latitude, longitude },
+    _creator:res.locals.user._id
   });
 
 
