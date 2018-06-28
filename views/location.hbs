@@ -1,3 +1,71 @@
-I am the location page!
+<head>
+  <title>Terraces next to you</title>
+</head>
 
-{{req.query}}
+<body>
+
+  <div class="container d-flex justify-content-center terry mt-4">
+  <h1>Where is Terry?</h1>
+  </div>
+
+  <div class="container d-flex justify-content-center">
+  <p> <h2>Find the terrace closest to you &nbsp</h2><h2 class="special"> in Berlin</h2></p>
+  </div>
+
+<div class="row container">
+  <div class="col-3 container">
+
+    <button type="button" class="locate-me-button btn btn-primary mx-auto">Locate Me</button>
+  </div>
+    <div class="col-3 container">    
+      {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
+      
+     <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
+  </div>
+
+  <div class="col-3 container">
+    {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
+
+    <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
+  </div>
+    {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
+</div>
+
+  {{!-- Google Map visual --}}
+  <div class="container m-4">
+  <div id="map"></div>
+  </div>
+  {{!-- Display all Spots --}}
+
+  <div id="listOfAllSpots" class="container">
+    <div class="row">
+      {{!--
+      <ul> --}} {{#each spots}}
+        <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="clip-image">
+              <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{this.name}}</h5>
+              {{!--
+              <p class="card-text">{{ this.description }}</p> --}}
+              <a href="{{this.url}}" class="btn btn-primary" target="_blank">learn more</a>
+            </div>
+          </div>
+        </div>
+        {{/each }} {{!-- </ul> --}}
+    </div>
+  </div>
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key={{googleAPIKey}}&libraries=geometry">
+  </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+   {{!--
+  <script type="text/javascript" src="../public/javascripts/yelp-interface.js"></script> --}}
+</body>
+

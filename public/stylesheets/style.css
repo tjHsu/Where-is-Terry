@@ -6313,4 +6313,10 @@ h1 {
   background-color: #829692;
   color: white; }
 
+#informationCarrier-long {
+  display: none; }
+
+#informationCarrier-lat {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */

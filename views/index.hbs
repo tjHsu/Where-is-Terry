@@ -1,20 +1,11 @@
-
-
 <head>
   <title>Teraces next to you</title>
-  {{!-- <style>
-    
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-
-    #listOfAllSpots {
-      background-color: #829692;
-      color: white;
-    }
-  </style> --}}
 </head>
+
+
+<div id="informationCarrier-lat" >{{spotLat}}</div>
+<div id="informationCarrier-long">{{spotLng}}</div>
+
 
 <body>
 
@@ -50,6 +41,8 @@
   <div id="map"></div>
   </div>
   {{!-- Display all Spots --}}
+
+  {{googleAPIKey}}
 
   <div id="listOfAllSpots" class="container">
     <div class="row">
