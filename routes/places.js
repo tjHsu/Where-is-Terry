@@ -3,16 +3,47 @@ const passport = require('passport');
 const placesRoutes = express.Router();
 const Spot = require("../models/Spot");
 const User = require("../models/User");
-
+const Comment = require("../models/Comment");
 
 placesRoutes.get('/detail/:spotId',(req,res)=>{
-  Spot.findById(req.params.spotId, function (err, spot) {
-    console.log(spot);
+  Spot.findById(req.params.spotId).populate('_comments')
+  .then(spot=>{
     res.render('place-detail',{spot});
-  });
+  })
 })
 
+placesRoutes.post('/detail/:spotId', (req, res) => {
 
+  const {
+    content,
+    canBringYourOwn
+  } = req.body;
+  // console.log("USER: ",res.locals.user);
+  const newComment = new Comment({
+    content,
+    canBringYourOwn,    
+    _creator:res.locals.user._id
+  });
+
+
+  newComment.save((err,comment) => {
+      if (err){ next(null, false, { message: newComment.errors }) }
+      return comment;
+  })
+  .then((comment)=>{
+    // console.log("I did get comment after save", comment);
+    // console.log("I did get comment id after save", comment._id);
+    User.findByIdAndUpdate(res.locals.user._id,{$push:{_addedComments:comment._id}}, (err,user)=>{
+      if(err) console.log(err)
+    });
+    Spot.findByIdAndUpdate(req.params.spotId,{$push:{_comments:comment._id}}, (err,spot)=>{
+      if(err) console.log(err)
+    });
+  })
+  .then(()=>{
+    res.redirect(`/places/detail/${req.params.spotId}`);
+  })
+});
 
 placesRoutes.get('/add', (req,res)=>{
   res.render('auth/add-place');

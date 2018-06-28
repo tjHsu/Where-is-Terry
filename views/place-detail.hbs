@@ -1,13 +1,23 @@
 <h1>This is the datail page for lovely you!</h1>
 <br>
 <h2>{{spot.name}}</h2>
-<br>
-Price range: {{spot.price}}
-<br>
-Location: {{spot.location}}
-<br>
-Rating: {{spot.rating}}
-<br>
+<h3>
+<br> Price range: {{spot.price}}
+<br> Location: {{spot.location.display_address}}
+<br> Rating: {{spot.rating}}
+<br> Comment: {{#each spot._comments}}{{content}}{{/each}}
+</h3>
+<br> ID: {{spot._id}}
 
 
 
+
+<form method="POST" action="/places/detail/{{spot._id}}">
+    <input type="text" name="content" placeholder="Leave a comment"><br><br>
+    <label>canBringYourOwn Drinks</label><br>
+    <input type="radio" name="canBringYourOwn" value="true"> Yes    
+    <input type="radio" name="canBringYourOwn" value="false"> No
+    <br>
+
+    <input type="submit" name="" id="submit">
+</form>
