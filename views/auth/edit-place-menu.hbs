@@ -6,9 +6,16 @@
     {{!-- <input type="text" name="name" placeholder="Name"> --}}
     <label>Your spots: </label><br>
     <select name="id">
-        {{#each spots._addedSpots}}
+        {{#each user._addedSpots}}
             <option value="{{_id}}">{{name}}</option> 
         {{/each}}
     </select>
     <input type="submit" name="" id="submit">
 </form>
+
+<h3>Your bookmarked favourite Spots:</h3>
+<ul>
+{{#each user._favouriteSpots}}
+<li><h4>{{name}}</h4></li>
+{{/each}}
+</ul>
