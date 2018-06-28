@@ -39,6 +39,7 @@ router.get("/location", (req, res, next) => {
       if (error) {
         next(error);
       } else {
+        // console.log("MySpot: ",spots)
         res.render("index",  { googleAPIKey: googleAPIKey, spots: spots, spotLat:spotLat, spotLng:spotLng } );
       }
     });

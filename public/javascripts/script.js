@@ -4,31 +4,32 @@ let center = {
   lat: 52.5170874,
   lng: 13.4019591
 }; 
-let spotLat = 0;
-let spotLong = 0;
+let spotLat = Number($("#informationCarrier-lat").text()); 
+let spotLong = Number($("#informationCarrier-long").text());
 
 $(document).ready(function() {
-
-  if(spotLat != 0 && spotLat!= 0){
-    spotLat = Number($("#informationCarrier-lat").text()); //gives whats written in between the informationCarrier Div 
-    spotLong = Number($("#informationCarrier-lat").text());
-    
+  // console.log("TYPE: #info. Lat and Long", typeof Number($("#informationCarrier-lat").text()), typeof Number($("#informationCarrier-long").text()));
+  if(spotLong != 0 && spotLat != 0){
+    // spotLat = Number($("#informationCarrier-lat").text()); //gives whats written in between the informationCarrier Div 
+    // spotLong = Number($("#informationCarrier-long").text());
+    console.log("Lat and Long", spotLat,spotLong);
     center = {
       lat: spotLat,
       lng: spotLong
     };
   }
-    else {
-      center = {
-        lat: 52.5170874,
-        lng: 13.4019591
-     };
-    }
+  // else {
+    console.log("centerInside", center)
+    //   center = {
+    //     lat: 52.5170874,
+    //     lng: 13.4019591
+    //  };
+    // }
 
     
-  });
+
   
-  console.log("center",center);
+  console.log("centeroutside",center);
 
 //default center
 // let center = {
@@ -306,3 +307,5 @@ function startMap(spots) {
     });
   }
 }
+
+});

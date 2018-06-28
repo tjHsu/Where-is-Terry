@@ -1,0 +1,38 @@
+<h1>Welcome to my Fake page for testing</h1>
+{{googleAPIKey}}
+<br>
+{{!-- {{spots}} --}}
+{{spotLat}}
+<br>
+{{spotLng}}
+
+<div id="map"></div>
+
+  <div id="listOfAllSpots" class="container">
+    <div class="row">
+      {{!--
+      <ul> --}} {{#each spots}}
+        <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+          <div class="card text-center mx-auto" style="width: 18rem;">
+            <div class="clip-image">
+              <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{this.name}}</h5>
+              {{!--
+              <p class="card-text">{{ this.description }}</p> --}}
+              <a href="/places/detail/{{this._id}}" class="btn btn-primary" target="_blank">detail</a>
+              <a href="{{this.url}}" class="btn btn-primary" target="_blank">learn more on Yelp</a>
+            </div>
+          </div>
+        </div>
+        {{/each }} {{!-- </ul> --}}
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key={{googleAPIKey}}&libraries=geometry">
+  </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/javascripts/script.js"></script>
