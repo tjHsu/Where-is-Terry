@@ -236,7 +236,7 @@ function startMap(spots) {
         elementType: "geometry.fill",
         stylers: [
           {
-            color: "#c8d7d4"
+            color: "#E9E8EA"
           }
         ]
       },
