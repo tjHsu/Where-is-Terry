@@ -4,6 +4,8 @@ const placesRoutes = express.Router();
 const Spot = require("../models/Spot");
 const User = require("../models/User");
 const Comment = require("../models/Comment");
+const ensureLogin = require("connect-ensure-login");
+
 
 placesRoutes.get('/detail/:spotId',(req,res)=>{
   Spot.findById(req.params.spotId).populate('_comments')
@@ -45,7 +47,7 @@ placesRoutes.post('/detail/:spotId', (req, res) => {
   })
 });
 
-placesRoutes.get('/add', (req,res)=>{
+placesRoutes.get('/add', ensureLogin.ensureLoggedIn(),(req,res)=>{
   res.render('auth/add-place');
 });
 
@@ -86,7 +88,7 @@ placesRoutes.post('/add', (req, res, next) => {
 });
 
 
-placesRoutes.get('/edit',(req,res)=>{
+placesRoutes.get('/edit', ensureLogin.ensureLoggedIn(),(req,res)=>{
   User.findById(res.locals.user._id).populate('_addedSpots')
   .then(spots=>{
     res.render('auth/edit-place-menu.hbs',{spots})

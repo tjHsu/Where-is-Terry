@@ -43,13 +43,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Log In</a>
           </li>
-          {{/unless}} {{#if user}}
+          {{/unless}} 
+          
+          {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout">Log Out</a>
           </li>
-          {{/if}}
-
-
           <li class="nav-item">
             <a class="nav-link" href="/places/add">Add new Spots <sup>BETA</sup> </a>
           </li>
@@ -59,14 +58,15 @@
             <li class="nav-item">
               <a class="nav-link" href="/auth/private">Private Page</a>
             </li>
+          {{/if}}
             <li class="nav-item nav-link welcome-back">
-
-              {{#if user}} Welcome back, {{user.username}} {{/if}}
+              {{#if user}} Welcome back, {{user.username}} 
+              {{/if}}
             </li>
           </li>
         </ul>
       </div>
-    </div>
+    </div>    
   </nav>
 
 

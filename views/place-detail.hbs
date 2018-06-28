@@ -1,15 +1,16 @@
-<h1>This is the datail page for lovely you!</h1>
+<h1>{{spot.name}}</h1>
 <br>
-<h2>{{spot.name}}</h2>
-<h3>
+<h2>More infos about the Terry</h2>
+<p>
 <br> Price range: {{spot.price}}
 <br> Location: {{spot.location.display_address}}
 <br> Rating: {{spot.rating}}
 <br> Comment: {{#each spot._comments}}{{content}}{{/each}}
-</h3>
-<br> ID: {{spot._id}}
+{{#unless spot._comments}} There are no comments on this Terry yet. Login to tell us what you liked or didn't like about this place {{/unless}}
+</p>
+{{!-- <br> ID: {{spot._id}} --}}
 
-
+{{#if user}}
 
 
 <form method="POST" action="/places/detail/{{spot._id}}">
@@ -21,3 +22,12 @@
 
     <input type="submit" name="" id="submit">
 </form>
+
+{{/if}}
+
+{{#unless user}}
+<h5>
+    
+It seems like you are new here! <a href="/auth/signup">Create an Account</a> or <a href="/auth/login">Login</a> to leave a comment. 
+</h5>
+{{/unless}}
