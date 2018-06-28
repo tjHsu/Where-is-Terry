@@ -1,41 +1,76 @@
-//default center
+console.log("calling script.js");
+
 let center = {
   lat: 52.5170874,
   lng: 13.4019591
-};
+}; 
+let spotLat = 0;
+let spotLong = 0;
+
+$(document).ready(function() {
+
+  if(spotLat != 0 && spotLat!= 0){
+    spotLat = Number($("#informationCarrier-lat").text()); //gives whats written in between the informationCarrier Div 
+    spotLong = Number($("#informationCarrier-lat").text());
+    
+    center = {
+      lat: spotLat,
+      lng: spotLong
+    };
+  }
+    else {
+      center = {
+        lat: 52.5170874,
+        lng: 13.4019591
+     };
+    }
+
+    
+  });
+  
+  console.log("center",center);
+
+//default center
+// let center = {
+//   lat: 52.5170874,
+//   lng: 13.4019591
+// };
 
 loadEverything();
 
 //Button Jquery
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-  $(".district-button").click(function(event) {
-    console.log( "district button clicked" );
-    center = {
-      lat: $(this).data("lat"),
-      lng: $(this).data("lng")
-    };
-    loadEverything(); 
+//   $(".district-button").click(function(event) {
+//     console.log( "district button clicked" );
+//     center = {
+//       lat: $(this).data("lat"),
+//       lng: $(this).data("lng")
+//     };
+//     loadEverything(); 
     
-  });
+//   });
 
-  $(".locate-me-button").click(function(event) {
-    console.log("locate me button clicked");
-    navigator.geolocation.getCurrentPosition(position => {
-      center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-        }
-    loadEverything(); 
-    });   
-  });
+//   $(".locate-me-button").click(function(event) {
+//     console.log("locate me button clicked");
+//     navigator.geolocation.getCurrentPosition(position => {
+//       center = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//         }
+//     loadEverything(); 
+//     });   
+//   });
 
-});
+// });
 
 function loadEverything() {  
+  console.log('we are loading the map');
+
   axios
     .get(`/api/spots/${center.lat}/${center.lng}`)
+    // .get(`/api/spots`)
     .then(response => {
       // console.log("DEGUG: response: ", response);
       let spots = response.data.spots;
