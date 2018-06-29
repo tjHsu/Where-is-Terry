@@ -67,10 +67,12 @@ placesRoutes.post('/add', (req, res, next) => {
     longitude
     
   } = req.body;
+  image_url = "https://image.flaticon.com/icons/png/512/174/174446.png";
   // console.log("USER: ",res.locals.user);
   const newSpot = new Spot({
     name,
     coordinates: { latitude, longitude },
+    image_url,
     _creator:res.locals.user._id
   });
 
