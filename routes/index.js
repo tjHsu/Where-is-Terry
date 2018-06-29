@@ -43,7 +43,7 @@ router.get("/location", (req, res, next) => {
       if (error) {
         next(error);
       } else {
-        // console.log("MySpot: ",spots)
+        console.log("MySpot: ",spots[0])
         res.render("index",  { googleAPIKey: googleAPIKey, spots: spots, spotLat:spotLat, spotLng:spotLng } );
       }
     });

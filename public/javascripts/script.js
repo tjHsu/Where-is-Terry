@@ -282,6 +282,7 @@ function startMap(spots) {
   let infoWindows = [];
 
   for (let i = 0; i < spots.length; i++) {
+    console.log("inside start map: ",spots[i].name)
     let newMarker = new google.maps.Marker({
       position: {
         lat: spots[i].coordinates.latitude,
