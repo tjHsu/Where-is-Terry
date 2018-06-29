@@ -6,6 +6,13 @@ const User = require("../models/User");
 const Comment = require("../models/Comment");
 const ensureLogin = require("connect-ensure-login");
 
+placesRoutes.get('/favourite',(req,res)=>{
+  User.findById(res.locals.user._id).populate('_addedSpots').populate('_favouriteSpots')
+  .then(user=>{
+    res.render('auth/favourite-place',{user})
+  })
+})
+
 
 placesRoutes.post('/add_favourite/:spotId', (req, res) => {
   User.findByIdAndUpdate(res.locals.user._id,{$addToSet:{_favouriteSpots:req.params.spotId}}, (err,user)=>{

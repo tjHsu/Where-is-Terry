@@ -266,7 +266,7 @@ $(document).ready(function() {
       });
       spotMarkers.push(newMarker);
       let commentString = [];
-      let commentTemp ="";
+      let commentTemp =" ";
       console.log("Length:", spots[i]._comments.length)
       //Create a Comment string for each of the Spots
       for (let j = 0; j < spots[i]._comments.length; j++) {
@@ -274,7 +274,8 @@ $(document).ready(function() {
       }
 
       commentString.push(commentTemp);
-
+      // commentString.push("haha");
+      console.log("Stringarray:", commentString)
       // create infoWindow with description for each of the spots
       let infoWindow = new google.maps.InfoWindow({
         content:
@@ -290,7 +291,7 @@ $(document).ready(function() {
           spots[i].name +
           `</h5>` +
           `<p class="card-text">` +
-          commentString[i]+
+          commentString+
           "</br>" +
           `</p>` +
           `<a href=${spots[i].url} class="btn btn-primary" target="_blank">` +
