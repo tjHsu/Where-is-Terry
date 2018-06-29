@@ -1,21 +1,25 @@
-<h1>Have a look on the spots you create with love ❤</h1>
 
-{{!-- {{#each spots._addedSpots}} {{name}} {{/each}} --}}
+<div class="container-fluid">
+    <h1>Your Terrys ❤</h1>
+    
+<div class="form-group">
+    <form method="POST" action="/places/edit">
+        <label>Your spots: </label><br>
+        <select name="id" class="form-control btn btn-light dropdown-toggle">
+            {{#each user._addedSpots}}
 
-<form method="POST" action="/places/edit">
-    {{!-- <input type="text" name="name" placeholder="Name"> --}}
-    <label>Your spots: </label><br>
-    <select name="id">
-        {{#each user._addedSpots}}
-            <option value="{{_id}}">{{name}}</option> 
-        {{/each}}
-    </select>
-    <input type="submit" name="" id="submit">
-</form>
+                <option value="{{_id}}" class="form-control btn dropdown-toggle">{{name}}</option> 
 
-<h3>Your bookmarked favourite Spots:</h3>
-<ul>
-{{#each user._favouriteSpots}}
-<li><h4>{{name}}</h4></li>
-{{/each}}
-</ul>
+            {{/each}}
+        </select>
+        <input type="submit" name="" id="submit" class="form-control col-sm locate-me-button btn btn-primary mx-auto">
+    </form>
+</div>
+
+    <h3>Your bookmarked Spots:</h3>
+    <ul>
+    {{#each user._favouriteSpots}}
+    <li><h4>{{name}}</h4></li>
+    {{/each}}
+    </ul>
+</div>
