@@ -17,7 +17,7 @@ apiRoutes.get('/spots/:id', (req, res, next) => {
 	Spot.findOne({_id: spotId}, (error, spot) => {
 		if (error) { next(error) } 
 		else { res.status(200).json({ spot }) }
-	})
+	});
 })
 
 apiRoutes.get('/spots/:latitude/:longitude', (req, res, next) => {
@@ -38,6 +38,7 @@ apiRoutes.get('/spots/:latitude/:longitude', (req, res, next) => {
 	.where('coordinates.latitude').gt(spotLatMin).lt(spotLatMax)
 	.where('coordinates.longitude').gt(spotLngMin).lt(spotLngMax)
 	.limit(10)
+	.populate('_comments')
 	.exec((error, spots) => {
 		if (error) { next(error) } 
 		else { res.status(200).json({ spots })}
