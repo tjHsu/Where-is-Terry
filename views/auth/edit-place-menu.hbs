@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <h1>Your Terrys ❤</h1>
+    <h1>Edit Your Terrys ❤</h1>
     
 <div class="form-group">
     <form method="POST" action="/places/edit">
@@ -12,14 +12,15 @@
 
             {{/each}}
         </select>
-        <input type="submit" name="" id="submit" class="form-control col-sm locate-me-button btn btn-primary mx-auto">
+        <button type="submit" id="submit" class="form-control col-sm locate-me-button btn btn-primary mx-auto">Edit this spot</button>
+        {{!-- <input type="submit" name="" id="submit" class="form-control col-sm locate-me-button btn btn-primary mx-auto"> --}}
     </form>
 </div>
 
-    <h3>Your bookmarked Spots:</h3>
+    {{!-- <h3>Your bookmarked Spots:</h3>
     <ul>
     {{#each user._favouriteSpots}}
     <li><h4>{{name}}</h4></li>
     {{/each}}
-    </ul>
+    </ul> --}}
 </div>
