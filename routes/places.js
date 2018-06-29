@@ -30,7 +30,7 @@ placesRoutes.post('/detail/:spotId', (req, res) => {
   } = req.body;
   // console.log("USER: ",res.locals.user);
   const newComment = new Comment({
-    content,
+    content : content + "--" + res.locals.user.username,
     canBringYourOwn,    
     _creator:res.locals.user._id
   });
