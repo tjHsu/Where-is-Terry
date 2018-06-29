@@ -1,15 +1,19 @@
-<h1>Hihi! Please Edit the Spot =)</h1>
 
+<div class="container-fluid">
+<h1>Edit {{spot.name}} </h1>		
+
+<div class="form-group">
 <form method="POST" action="/places/edit/{{spot._id}}">
     <label>Name: </label>
-    <input type="text" name="name" value="{{spot.name}}">
+    <input class="form-control" type="text" name="name" value="{{spot.name}}">
     <br>
     <label>Address: </label>
-    <input type="text" name="latitude" value="{{spot.coordinates.latitude}}">
-    <input type="text" name="longitude" value="{{spot.coordinates.longitude}}">
+    <input class="form-control" type="text" name="latitude" value="{{spot.coordinates.latitude}}">
+    <inputclass="form-control"  type="text" name="longitude" value="{{spot.coordinates.longitude}}">
+</div>
 
-
-    <input type="submit" name="" id="submit">
+    <input type="submit" name="" id="submit" class="col-sm locate-me-button btn btn-primary mx-auto" >
 </form>
 <h2>Hint: 52.500572, 13.454442</h2>
 <div id="map"></div>
+</div>
