@@ -311,9 +311,13 @@ function startMap(spots) {
         } class="btn btn-primary" target="_blank">` +
         `learn more` +
         `</a>` +
+        ` <a href="/places/detail/${spots[i]._id}" class="btn btn-primary" target="_blank">edit</a>`+
         `</div>` +
         `</div>` +
-        ` </div>`
+        ` </div>` 
+
+
+
     });
 
     infoWindows.push(infoWindow);
