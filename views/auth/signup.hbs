@@ -1,21 +1,21 @@
 <!-- views/auth/signup.hbs -->
 
-
+<div class="container-fluid">
 <h2>Create an Account and become part of the Terry Community</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Merry">
+  <input class="form-control" id="username" type="text" name="username" placeholder="Merry">
 
   <br><br>
   
   <label for="email">Email</label>
-  <input id="email" type="text" name="email" placeholder="VerryTerry@gmail.com">
+  <input class="form-control" id="email" type="text" name="email" placeholder="VerryTerry@gmail.com">
 
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="super secret password">
+  <input class="form-control" id="password" type="password" name="password" placeholder="super secret password">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
@@ -30,3 +30,4 @@
     <a href="/auth/login">Login</a>
   </p>
 </form>
+</div>
