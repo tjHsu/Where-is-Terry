@@ -12,10 +12,10 @@
 <div class="container.fluid">
 
     <div class="container justify-content-center terry">
-      <h1>Where is Terry?</h1>
-      <div class="container justify-content-center">
-        <p> <h3>Find the terrace closest to you <b> in Berlin</b></h3></p>
+      <div class="visible-sm-block hidden-sm">
+        <h1> Where is Terry?</h1>
       </div>
+        <p> <h2>Find the terrace closest to you in Berlin</h2></p>
     </div>
 
   <div class="row">
@@ -26,45 +26,25 @@
     
 
     {{!-- Google Map visual --}}
-    <div class="container m-4">
     <div id="map"></div>
-    </div>
-    {{!-- Display all Spots --}}
-
-  {{!-- <div class="row container">
-    <div class="col-3 container">
-
-      <button type="button" class="locate-me-button btn btn-primary mx-auto">LOCATE ME</button>
-    </div>
-      <div class="col-3 container">    
-        
-      <a href="/location/?latitude=52.4965914&longitude=13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</a>
-    </div>
-
-    <div class="col-3 container">
-
-      <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button>
-  </div> --}}
-
-        {{!-- <button type="button" data-lat="52.4965914" data-lng="13.4141903" class="xberg district-button btn btn-primary mx-auto">XBERG</button> --}}
-      {{!-- <a href="/location/?latitude=52.5130875&longitude=13.4509698" class="xberg district-button btn btn-primary mx-auto">FHAIN</a> --}}
-      {{!-- <button type="button" data-lat="52.5130875" data-lng="13.4509698" class="fhain district-button btn btn-primary mx-auto">FHAIN</button> --}}
-
-
 
     <div id="listOfAllSpots" class="container">
       <div class="row">
         {{!--
         <ul> --}} {{#each spots}}
-          <div class="col-lg-4 col-md-6 col-sm-12 p-2">
-            <div class="card text-center mx-auto" style="width: 18rem;">
+          <div class="col-lg-3 col-md-4 col-sm-6 pt-2">
+            <div class="card text-center mx-auto" style="width: 12rem;">
               <div class="clip-image">
-                <img class="card-img-top pt-3 mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
+                <img class="card-img-top mx-auto mt-auto" src="{{this.image_url}}" alt="Card image cap">
               </div>
               <div class="card-body">
-                <h5 class="card-title">{{this.name}}</h5>
-                {{!--
-                <p class="card-text">{{ this.description }}</p> --}}
+                <p class="card-title poiret">{{this.name}}</p>
+                
+                <p class="card-text">
+                  {{#if this._comments}}
+                  User Comments:{{#each this._comments}} {{this.content}} <br> {{/each}}
+                  {{/if}}
+                  </p>
                 <a href="/places/detail/{{this._id}}" class="btn btn-primary" target="_blank">edit</a>
                 <a href="{{this.url}}" class="btn btn-primary" target="_blank">visit on yelp</a>
               </div>

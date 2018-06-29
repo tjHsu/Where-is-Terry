@@ -6,7 +6,9 @@ const Spot = require("../models/Spot");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  Spot.find().then(spots => {
+
+  
+  Spot.find().populate('_comments').then(spots => {
     res.render("index", { googleAPIKey: googleAPIKey, spots: spots });
   });
 });
