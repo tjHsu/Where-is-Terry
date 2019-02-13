@@ -1,7 +1,7 @@
 # Where-is-Terry
 [Link to the Website](https://where-is-terry.herokuapp.com/)
 
-You all know Where is Wally.. met Where is Terry:
+You all know Where is Wally.. meet Where is Terry:
 
 ## Introduction
 ### Motivation
