@@ -1,4 +1,4 @@
-# Where-is-Terry
+# Where-is-Terry (No Longer Actively Maintained)
 [Link to the Website](https://where-is-terry.herokuapp.com/)
 
 You all know Where is Wally.. meet Where is Terry:
